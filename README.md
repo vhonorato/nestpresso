@@ -1,73 +1,86 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Nestpresso
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Getting Started
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+### Setup
 
-## Description
+- [Install yarn](https://yarnpkg.com/)
+- [Install docker for mac](https://docs.docker.com/docker-for-mac/install/)
+- [Install Hasura CLI version v2.0.9](https://hasura.io/docs/latest/graphql/core/hasura-cli/install-hasura-cli.html#install-hasura-cli)
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+#### M1 machines
 
-## Installation
+- [Install docker for mac](https://docs.docker.com/docker-for-mac/apple-m1/)
+- [Install Hasura CLI node version](https://hasura.io/docs/1.0/graphql/core/hasura-cli/install-hasura-cli.html#install-through-npm)
+- Increase the docker memory to 6GB
 
-```bash
-$ yarn install
-```
+#### Hasura Configure
 
-## Running the app
+- If needs to change default configuration for Hasura (ports, admin secret, etc..), duplicate `.env.example` file and rename it for `.env`.
+- Done, just change the configurations.
 
-```bash
-# development
-$ yarn run start
+## Run
 
-# watch mode
-$ yarn run start:dev
+- `yarn start`: Start Hasura.
+- `yarn hasura:up`: Start Hasura Docker container.
+- `yarn hasura:start`: Start Hasura and apply metadata and migrations.
+- `yarn hasura:stop`: Stop Hasura.
+- `yarn hasura:console`: Open Hasura Console.
 
-# production mode
-$ yarn run start:prod
-```
+## [Hasura](https://hasura.io/docs/latest/graphql/core/getting-started/index.html)
 
-## Test
+All config files, metadata and migrations created are in `./hasura` folder. Current version is:
 
-```bash
-# unit tests
-$ yarn run test
+- `v2.33.4`
 
-# e2e tests
-$ yarn run test:e2e
+## Commit Messages
 
-# test coverage
-$ yarn run test:cov
-```
+### Git Commit Guidelines
 
-## Support
+- Follow the [Conventional Commits](https://conventionalcommits.org/)
+- Follow the [Angular Commit Message Guidelines](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-guidelines)
+- Follow the [How to Write a Git Commit Message](http://chris.beams.io/posts/git-commit/) tips
+- Follow the [5 Useful Tips For A Better Commit Message](https://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message) tips
+- Consider using [Commitizen cli](http://commitizen.github.io/cz-cli/)
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### Follow [The seven rules of a great Git commit message](https://chris.beams.io/posts/git-commit/) (TL;DR)
 
-## Stay in touch
+1. [Separate subject from body with a blank line](https://chris.beams.io/posts/git-commit/#separate)
+2. [Limit the subject line to 50 characters](https://chris.beams.io/posts/git-commit/#limit-50)
+3. [Capitalize the subject line](https://chris.beams.io/posts/git-commit/#capitalize)
+4. [Do not end the subject line with a period](https://chris.beams.io/posts/git-commit/#end)
+5. [Use the imperative mood in the subject line](https://chris.beams.io/posts/git-commit/#imperative)
+6. [Wrap the body at 72 characters](https://chris.beams.io/posts/git-commit/#wrap-72)
+7. [Use the body to explain what and why vs. how](https://chris.beams.io/posts/git-commit/#why-not-how)
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### Commit Types
 
-## License
+As configured on [`.commitlintrc.yml`](https://commitlint.js.org/#/reference-configuration), it must be one of the following:
 
-Nest is [MIT licensed](LICENSE).
+- **feat**: A new feature
+- **fix**: A bug fix
+- **docs**: Documentation only changes
+- **ref**: A code change that neither fixes a bug nor adds a feature
+- **test**: Adding missing tests or correcting existing tests
+- **revert**: A commit that reverts a previous commit
+- **chore**: Changes to the build process or auxiliary tools and libraries such as documentation generation
+- **ci**: Changes to our CI configuration files and scripts _(example scopes: Circle, BrowserStack, SauceLabs)_
+- **build**: Changes that affect the build system or external dependencies _(example scopes: gulp, broccoli, npm)_
+- **perf**: A code change that improves performance
+- **git**: Changes on git files, such as [`.gitignore`](https://git-scm.com/docs/gitignore)
+
+### Commit Best Practices
+
+- Commit [often](https://sethrobertson.github.io/GitBestPractices/#sausage_metaphor)
+- Keep commits small and [atomic](https://www.freshconsulting.com/atomic-commits/)
+- Write [S.O.L.I.D.](https://youtu.be/e9K1gHYIE2c) commits
+- Write meaningful titles targeting for non-technical readers
+- Write commits that would help the Code Review
+- Add any extra information that would help the Code Review
+- Reference the [issue](https://help.github.com/en/articles/autolinked-references-and-urls) that originated the commit
+
+## References
+
+- [Hasura](https://docs.hasura.io/1.0/graphql/manual/index.html) - Get realtime GraphQL APIs instantly
+- [Migrations](https://docs.hasura.io/1.0/graphql/manual/migrations/new-database.html) - Migrations for a new database and Hasura instance
+- [PostgreSQL](https://www.postgresql.org/) - The World's Most Advanced Open Source Relational Database
