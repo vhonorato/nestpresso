@@ -1,0 +1,27 @@
+version: '3.6'
+
+services:
+  postgres:
+    container_name: postgres-hasura-nestpresso
+    image: postgres:12
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgrespassword
+    ports:
+      - 5492:5432
+
+  hasura-engine:
+    container_name: engine-hasura-nestpresso
+    image: hasura/graphql-engine:v2.36.2
+    env_file:
+      - ./.env
+    ports:
+      - ${HASURA_ENGINE_PORT}:8080
+    depends_on:
+      - postgres
+    environment:
+      HASURA_GRAPHQL_DATABASE_URL: ${HASURA_GRAPHQL_DATABASE_URL:-postgres://postgres:postgrespassword@postgres:5432/postgres}
+
+volumes:
+  db_data:
